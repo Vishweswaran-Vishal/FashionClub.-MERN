@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { User } from "../model/user.js";
+import { User } from "../model/User.js";
 import sendMail from "../middleware/sendMail.js";
 import dotenv from "dotenv";
 
@@ -49,7 +49,7 @@ export const verifyUser = async (req, res) => {
         if(!verify){
             return res.status(400).json({message: "Invalid or expired token"});
         }
-        
+
         if(verify.otp !== otp){
             return res.status(400).json({message: "Invalid OTP"});
         }
