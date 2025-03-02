@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
-import { HiOutlineUser, HiOutlineShoppingBag, HiBars3BottomRight, } from "react-icons/hi2";
+import {
+  HiOutlineUser,
+  HiOutlineShoppingBag,
+  HiBars3BottomRight,
+} from "react-icons/hi2";
 import SearchBar from "./SearchBar";
 import CartDrawer from "../layout/CartDrawer";
 import { useState } from "react";
@@ -7,21 +11,22 @@ import { IoMdClose } from "react-icons/io";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [navDrawerOpen, setNavDrawerOpen] = useState(false);
+  const { cart } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.auth);
 
-   const [drawerOpen, setDrawerOpen] = useState(false);
-   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
-   const { cart } = useSelector((state) => state.cart);
-   const { user } = useSelector((state) => state.auth)
+  const cartItemCount =
+    cart?.products?.reduce((total, product) => total + product.quantity, 0) ||
+    0;
 
-   const cartItemCount = cart?.products?.reduce((total, product) => total + product.quantity, 0) || 0;
-   
-   const toggleNavDrawer = () => {
+  const toggleNavDrawer = () => {
     setNavDrawerOpen(!navDrawerOpen);
-   }
+  };
 
-    const toggleCartDrawer = () => {
-        setDrawerOpen(!drawerOpen);
-    }
+  const toggleCartDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
 
   return (
     <>
@@ -137,6 +142,6 @@ const Navbar = () => {
       </div>
     </>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
