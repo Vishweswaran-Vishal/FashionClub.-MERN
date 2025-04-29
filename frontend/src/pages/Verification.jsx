@@ -31,8 +31,8 @@ const Verification = () => {
   const handleVerify = async (e) => {
     e.preventDefault();
 
-    if (!otp || otp.length !== 5) {
-      alert("Enter a valid 5-digit OTP");
+    if (!otp || otp.length !== 6) {
+      alert("Enter a valid 6-digit OTP");
       return;
     }
 
