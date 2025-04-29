@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { fetchOrderDetails } from "../redux/slices/orderSlice";
@@ -7,7 +7,7 @@ const OrderDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { orderDetails, loading, error } = useSelector((state) => state.order);
-
+  
   useEffect(() => {
     dispatch(fetchOrderDetails(id));
   }, [dispatch, id])
@@ -44,7 +44,7 @@ const OrderDetailsPage = () => {
               </span>
               <span
                 className={`${
-                  orderDetails.isDelivery
+                  orderDetails.isDelivered
                     ? "bg-green-100 text-green-700"
                     : "bg-red-100 text-red-700"
                 } px-3 py-1 rounded-full text-sm font-medium mb-2`}

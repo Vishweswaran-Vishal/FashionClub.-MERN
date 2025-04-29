@@ -22,7 +22,6 @@ const NewArrivals = () => {
       console.error(error);
     }
   }
-
   fetchNewArrivals();
  }, [])
 

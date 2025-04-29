@@ -11,11 +11,14 @@ const ProductManagement = () => {
   useEffect(() => {
     dispatch(fetchAdminProducts());
   }, [dispatch])
+
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete the Product?")) {
       dispatch(deleteProduct(id));
     }
   };
+
+  const productList = Array.isArray(products.products) ? products.products : [];
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -34,8 +37,8 @@ const ProductManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {products.length > 0 ? (
-              products.map((product) => (
+            {productList.length > 0 ? (
+              productList.map((product) => (
                 <tr
                   key={product._id}
                   className="border-b hover:bg-gray-50 cursor-pointer"

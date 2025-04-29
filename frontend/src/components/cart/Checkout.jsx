@@ -33,6 +33,9 @@ const Checkout = () => {
     if (cart && cart.products.length > 0) {
       const res = await dispatch(
         createCheckout({
+          userId: user._id,
+          name: user.name,
+          email: user.email,
           checkoutItems: cart.products,
           shippingAddress,
           paymentMethod: "PayPal",

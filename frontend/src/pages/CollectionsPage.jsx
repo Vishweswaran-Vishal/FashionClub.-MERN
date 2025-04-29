@@ -21,6 +21,7 @@ const CollectionPage = () => {
   useEffect( () => {
     dispatch(fetchProductByFilters({ collection, ...queryParams }))
   }, [dispatch, collection, searchParams])
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   }
@@ -37,7 +38,6 @@ const CollectionPage = () => {
         document.removeEventListener("mousedown", handleClickOutside);
     }
   }, []);
-
 
   return (
     <div className="flex flex-col lg:flex-row">

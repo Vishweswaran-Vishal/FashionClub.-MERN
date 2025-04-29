@@ -10,7 +10,7 @@ export const fetchUsers = createAsyncThunk("admin/fetchUsers", async () => {
       },
     }
   );
-  return response.data;
+  return response.data.users;
 });
 
 export const addUser = createAsyncThunk(

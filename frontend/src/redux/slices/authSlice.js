@@ -23,7 +23,7 @@ export const loginUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/user/login`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/login`,
         userData
       );
       localStorage.setItem("userInfo", JSON.stringify(response.data.user));
@@ -42,7 +42,7 @@ export const registerUser = createAsyncThunk(
   async ({ name, email, password }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/user/register`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/register`,
         { name, email, password }
       );
 
@@ -58,7 +58,7 @@ export const verifyUser = createAsyncThunk(
   async ({ otp, activationToken }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/user/verify`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/verify`,
         { otp, activationToken }
       );
 

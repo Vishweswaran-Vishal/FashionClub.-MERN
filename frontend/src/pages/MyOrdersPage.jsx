@@ -8,11 +8,7 @@ const MyOrdersPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const reduxState = useSelector((state) => state);
-  console.log("Full Redux State:", reduxState);
-
   const { orders, loading, error } = useSelector((state) => state.order);
-  console.log("Orders Data:", orders);
 
   useEffect (() => {
     dispatch(fetchUserOrders());

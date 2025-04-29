@@ -30,6 +30,11 @@ const UserManagement = () => {
     role: "customer",
   });
 
+  // useEffect(() => {
+  //   console.log("🧾 Users from backend:", users);
+  //   console.log(Array.isArray(users));
+  // }, [users]);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -134,7 +139,7 @@ const UserManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {Array.isArray(users) && users.map((user) => (
               <tr key={user._id} className="border-b hover:bg-gray-50">
                 <td className="p-4 font-medium text-gray-900 whitespace-nowrap">
                   {user.name}

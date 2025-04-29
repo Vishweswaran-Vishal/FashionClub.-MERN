@@ -49,7 +49,7 @@ const AdminHomePage = () => {
           <div className="p-4 shadow-md rounded-lg">
             <h2 className="text-xl font-semibold">Total Products</h2>
             <p className="text-2xl">{products.length}</p>
-            <Link to="/admin/orders" className="text-blue-500 hover:underline">
+            <Link to="/admin/products" className="text-blue-500 hover:underline">
               Manage products
             </Link>
           </div>
@@ -75,7 +75,7 @@ const AdminHomePage = () => {
                     className="border-b hover:bg-gray-50 cursor-pointer"
                   >
                     <td className="p-4">{order._id}</td>
-                    <td className="p-4">{order.user.name}</td>
+                    <td className="p-4">{order.name}</td>
                     <td className="p-4">{order.totalPrice.toFixed(2)}</td>
                     <td className="p-4">{order.status}</td>
                   </tr>

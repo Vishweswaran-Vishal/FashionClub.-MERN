@@ -50,7 +50,7 @@ export const addToCart = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response);
+      return rejectWithValue(error.response?.data || error.message);
     }
   }
 );

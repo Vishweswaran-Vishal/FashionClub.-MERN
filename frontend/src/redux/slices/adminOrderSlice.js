@@ -6,7 +6,7 @@ const USER_TOKEN = `${localStorage.getItem("userToken")}`;
 
 export const fetchAllOrders = createAsyncThunk(
   "adminOrders/fetchAllOrders",
-  async (__DO_NOT_USE__ActionTypes, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(`${API_URL}/api/admin/orders`, {
         headers: {
@@ -15,7 +15,7 @@ export const fetchAllOrders = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response?.data);
     }
   }
 );
